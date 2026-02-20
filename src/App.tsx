@@ -1,11 +1,10 @@
 
 import './App.css'
+import { DashboardStore } from './components.tsx/dashboard-store'
 
 function App() {
   return (
-    <div>
-      <h1 className="text-red-900">helloudqa</h1>
-    </div>
+    <DashboardStore/>
   )
 }
 
