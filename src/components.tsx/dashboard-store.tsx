@@ -26,7 +26,20 @@ export function DashboardStore(){
                     <Menu/>
                 </div>
 
-                <div className={`lg:col-span-fixed lg:fixed top-0 right-0 bottom-[64px] lg:bottom-0 w-full lg:w-[320px] h-full lg:h-screen bg-[#ffffff] z-[50] overflow-hidden transition-transform duration-500 ease-in-out ${showCart ? "translate-x-0" : "translate-x-full lg:translate-x-0"}`}>
+                <div className={`
+    fixed
+    top-0
+    right-0
+    w-full
+    h-screen
+    lg:w-[320px]
+    lg:h-screen
+    bg-[#ffffff]
+    z-[50]
+    overflow-y-auto
+    transition-transform duration-500 ease-in-out
+    ${showCart ? "translate-x-0" : "translate-x-full lg:translate-x-0"}
+  `}>
                     <ShoppingCart/>
                 </div>
             </main>
