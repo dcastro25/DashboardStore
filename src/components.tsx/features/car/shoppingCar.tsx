@@ -2,7 +2,7 @@ import { MdOutlineShoppingBag } from "react-icons/md";
 
 export function ShoppingCart (){
     return(
-        <div className="flex flex-col h-[calc(100vh-64px)] lg:h-screen text-[#3b2314] bg-[#ffffff] rounded-2xl">
+        <div className="flex flex-col h-[calc(100vh-64px)] lg:h-screen text-[#3b2314] bg-[#ffffff] rounded-2xl transition-all">
             <div className="flex justify-between items-center border-b border-[#e8631c67] pb-6 px-6 pt-6">
                 <h2 className="text-2xl font-bold">Pedido</h2>
                 <div className="flex gap-3">

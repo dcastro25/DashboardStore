@@ -30,7 +30,7 @@ export function DashboardStore(){
                     <Menu/>
                 </div>
 
-                    <div className={`lg:col-span-2 fixed lg:fixed lg:top-0 lg:right-0 lg:h-screen lg:w-[420px] bg-[#ffffff] w-full z-[50] transition-all ${showCart ? "" : "hidden lg:block"}`}>
+                <div className={`lg:col-span-2 fixed lg:static top-0 bottom-[64px] lg:bottom-auto right-0 w-full lg:w-auto h-auto lg:h-screen bg-[#ffffff] z-[50] transition-transform ${showCart ? "translate-x-0" : "translate-x-full"}`}>
                     <ShoppingCart/>
                 </div>
             </main>

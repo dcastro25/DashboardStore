@@ -1,222 +1,200 @@
-# Dashboard Store
 
-Un dashboard moderno para tienda construido con **React 19**, **TypeScript**, **Tailwind CSS** y **Vite**.
+# 🍽️ Patacón Express - Restaurant Dashboard
 
-## 📋 Características
+Dashboard web para restaurante desarrollado con React, TypeScript y Tailwind CSS, enfocado en la gestión visual del menú y carrito de pedidos en una interfaz moderna, elegante y totalmente responsive.
 
-- ✨ Interfaz moderna con componentes React
-- 🎨 Estilizado con Tailwind CSS v3+
-- 📱 Diseño responsive (adaptable a mobile y desktop)
-- 🚀 Build rápido con Vite
-- 🔧 TypeScript para seguridad de tipos
-- 🎯 Sidebar navegable con iconos (react-icons)
-- 📊 Estructura modular y escalable
-
-## 🛠️ Stack Tecnológico
-
-| Tecnología | Versión | Propósito |
-|---|---|---|
-| React | ^19.2.0 | Framework UI |
-| TypeScript | ~5.9.3 | Lenguaje tipado |
-| Tailwind CSS | ^3.4.17 | Estilos CSS |
-| Vite | ^7.3.1 | Build tool |
-| react-icons | ^5.5.0 | Iconos SVG |
-| Node | 20+ | Runtime |
-
-## 📂 Estructura del Proyecto
-
-```
-dashboard-store/
-├── src/
-│   ├── components.tsx/
-│   │   ├── dashboard-store.tsx      # Componente principal del dashboard
-│   │   └── shared/
-│   │       └── siderbar/
-│   │           ├── siderbar.tsx     # Sidebar principal
-│   │           ├── siderbarItems.tsx    # Items del sidebar
-│   │           └── sidebarMobile.tsx    # Versión mobile del sidebar
-│   ├── App.tsx                 # Componente raíz
-│   ├── App.css                 # Estilos locales de App
-│   ├── index.css               # Estilos globales + directivas Tailwind
-│   ├── main.tsx                # Entry point
-│   └── assets/                 # Recursos estáticos
-├── index.html                  # HTML principal
-├── tailwind.config.js          # Configuración Tailwind
-├── postcss.config.js           # Configuración PostCSS
-├── vite.config.ts              # Configuración Vite
-├── tsconfig.json               # Configuración TypeScript
-├── package.json                # Dependencias y scripts
-├── eslint.config.js            # ESLint config
-└── README.md                   # Este archivo
-```
-
-## 🚀 Inicio Rápido
-
-### Requisitos Previos
-- Node.js 20+ y npm (o yarn/pnpm)
-
-### Instalación
-
-```bash
-# Clonar el repositorio (si aplica)
-git clone <repo-url>
-cd dashboard-store
-
-# Instalar dependencias
-npm install
-```
-
-### Desarrollo
-
-```bash
-# Iniciar servidor de desarrollo
-npm run dev
-```
-
-El servidor se abre en `http://localhost:5173/`
-
-### Build para Producción
-
-```bash
-# Compilar y generar build optimizado
-npm run build
-
-# Previsualizar build (local)
-npm run preview
-```
-
-### Linting
-
-```bash
-# Ejecutar ESLint
-npm run lint
-```
-
-## 🎨 Configuración de Tailwind CSS
-
-La configuración Tailwind está lista con:
-- **Content paths**: `./index.html`, `./src/**/*.{js,ts,jsx,tsx}`
-- **PostCSS integration**: Configurado con autoprefixer para compatibilidad
-- **Directivas activadas**: `@tailwind base`, `@tailwind components`, `@tailwind utilities`
-
-### IntelliSense en VS Code
-
-Se incluye configuración para autocompletado de clases Tailwind:
-
-```json
-{
-  "tailwindCSS.includeLanguages": {
-    "typescriptreact": "html"
-  },
-  "tailwindCSS.validate": true,
-  "css.lint.unknownAtRules": "ignore"
-}
-```
-
-**Extensión recomendada**: [Tailwind CSS IntelliSense](https://marketplace.visualstudio.com/items?itemName=bradlc.vscode-tailwindcss)
-
-```bash
-code --install-extension bradlc.vscode-tailwindcss
-```
-
-## 📝 Componentes Principales
-
-### `App.tsx`
-Componente raíz que renderiza el `DashboardStore`.
-
-```tsx
-import { DashboardStore } from './components.tsx/dashboard-store'
-
-function App() {
-  return <DashboardStore/>
-}
-
-export default App
-```
-
-### `DashboardStore`
-Componente principal del dashboard con fondo oscuro (`bg-[#262837]`).
-- Estado para gestionar órdenes (preparado para expansión)
-- Contiene el `Siderbar`
-
-### `Siderbar`
-Navegación lateral con:
-- Logo/Branding
-- Navegación con iconos (home, gráficos, descuentos, correo, notificaciones, ajustes)
-- Opción de logout
-- **Responsive**: Se despliza con transición suave en mobile, fijo en desktop (lg)
-- Iconos dinámicos con **react-icons**
-
-## 🎯 Próximas Mejoras Planeadas
-
-- [ ] Rutas dinámicas (React Router)
-- [ ] Dashboard con gráficos y estadísticas
-- [ ] Gestión de ordenes/productos
-- [ ] Autenticación
-- [ ] API integration
-- [ ] Temas (dark/light mode)
-- [ ] Más componentes compartidos
-
-## 🛠️ Desarrollo
-
-### Añadir Componentes Nuevos
-
-```bash
-# Crear carpeta de componente
-mkdir -p src/components.tsx/feature-name
-
-# Crear archivo TSX
-touch src/components.tsx/feature-name/FeatureName.tsx
-```
-
-### Importar Iconos (react-icons)
-
-```tsx
-import { RiHome6Line, RiSettings6Line } from "react-icons/ri";
-
-// Usar
-<RiHome6Line className="w-6 h-6" />
-```
-
-### Usar Tailwind CSS
-
-```tsx
-<div className="bg-gray-800 text-white p-4 rounded-lg hover:bg-gray-700 transition">
-  Contenido
-</div>
-```
-
-## 🐛 Solución de Problemas
-
-### Las clases Tailwind no se aplican
-
-1. Comprueba que `src/index.css` importa las directivas `@tailwind`
-2. Verifica que `src/main.tsx` importa `src/index.css`
-3. Reinicia el servidor: `npm run dev`
-
-### IntelliSense no sugiere clases Tailwind
-
-1. Instala la extensión: `code --install-extension bradlc.vscode-tailwindcss`
-2. Recarga VS Code
-3. Comprueba que `.vscode/settings.json` está configurado (incluido en el proyecto)
-
-### Build falla
-
-```bash
-# Limpiar cache y node_modules
-rm -rf node_modules package-lock.json
-npm install
-npm run build
-```
-
-## 📄 Licencia
-
-Privado
-
-## 👨‍💻 Autor
-
-Dashboard Store - Proyecto Personal
+Este proyecto simula el sistema de pedidos de un restaurante llamado **Patacón Express**, con una experiencia tipo POS (Point of Sale) donde el usuario puede explorar platos, navegar por categorías y visualizar el carrito de compras con animaciones suaves.
 
 ---
 
-**Última actualización**: Febrero 2026
+## 🚀 Demo en vivo
+
+🔗 [https://dashboard-store-gamma.vercel.app](https://dashboard-store-gamma.vercel.app)
+
+---
+
+## 🧠 Objetivo del proyecto
+
+Este proyecto fue desarrollado como práctica para fortalecer habilidades en desarrollo Frontend moderno, arquitectura escalable en React y construcción de interfaces profesionales orientadas a negocios reales (restaurantes).
+
+Simula una aplicación real de restaurante con diseño elegante, animaciones suaves y enfoque en experiencia de usuario.
+
+---
+
+## ✨ Características principales
+
+### 🍛 Menú dinámico de platos
+
+* Visualización de comidas en tarjetas (Food Cards)
+* Organización por categorías (Hot dishes, Cold dishes, Soup, Grill)
+* Interfaz limpia y atractiva
+* Datos simulados desde mockData
+
+### 🛒 Carrito de compras interactivo
+
+* Panel lateral deslizable en móvil
+* Carrito fijo en escritorio (layout dashboard)
+* Transiciones suaves con Tailwind (`transform` y `transition`)
+* Estado vacío con diseño UX amigable
+* Botón de compra y tipo de pedido (Para llevar / En sitio)
+
+### 📱 Diseño 100% Responsive
+
+* Mobile First
+* Navbar inferior en dispositivos móviles
+* Sidebar lateral en escritorio
+* Adaptación automática del layout con Grid
+
+### 🎨 UI/UX moderna
+
+* Paleta elegante acorde a la identidad de Patacón Express
+* Sombras suaves y hover effects
+* Transiciones fluidas en menú, carrito y tabs
+* Tipografía clara y jerarquía visual profesional
+
+---
+
+## 🏗️ Estructura del proyecto
+
+Basada en arquitectura modular por features (escalable y mantenible):
+
+```bash
+src/
+│
+├── features/
+│   ├── car/
+│   │   └── shoppingCar.tsx
+│   │
+│   ├── menu/
+│   │   ├── cardMenu.tsx
+│   │   ├── menu.tsx
+│   │   └── menuSelect.tsx
+│   │
+│   └── sidebar/
+│       ├── sidebar.tsx
+│       ├── sidebarMobile.tsx
+│       ├── sidebarItems.tsx
+│       └── sidebarMobileItem.tsx
+│
+├── mockData/
+│   └── mockData.tsx
+│
+├── assets/
+├── App.tsx
+├── main.tsx
+└── dashboard-store.tsx
+```
+
+Esta organización permite:
+
+* Separación clara de responsabilidades
+* Escalabilidad futura
+* Mantenimiento más sencillo
+* Código más limpio y profesional
+
+---
+
+## ⚙️ Funcionalidades técnicas destacadas
+
+* Manejo de estado con `useState`
+* Componentización reutilizable
+* Layout tipo dashboard con CSS Grid
+* Animaciones con Tailwind CSS
+* Transiciones suaves del carrito (`translate-x`)
+* Props tipadas con TypeScript
+* Arquitectura por dominio (features)
+
+---
+
+## 🛠️ Tecnologías utilizadas
+
+* React
+* TypeScript
+* Vite
+* Tailwind CSS
+* React Icons
+* CSS Grid & Flexbox
+
+---
+
+## 🎯 Arquitectura de la interfaz
+
+El layout principal está dividido en:
+
+* Sidebar de navegación
+* Sección de menú (platos)
+* Carrito de compras lateral
+
+En escritorio:
+
+* Grid de 8 columnas
+* Menú: 6 columnas
+* Carrito: 2 columnas
+
+En móvil:
+
+* Carrito deslizable
+* Navbar inferior interactiva
+
+---
+
+## 📦 Instalación y ejecución
+
+Clonar el repositorio:
+
+```bash
+git clone https://github.com/tu-usuario/dashboard-store
+```
+
+Entrar al proyecto:
+
+```bash
+cd dashboard-store
+```
+
+Instalar dependencias:
+
+```bash
+npm install
+```
+
+Ejecutar en desarrollo:
+
+```bash
+npm run dev
+```
+
+---
+
+## 🌎 Deploy
+
+El proyecto está desplegado en producción con Vercel:
+🔗 [https://dashboard-store-gamma.vercel.app](https://dashboard-store-gamma.vercel.app)
+
+---
+
+## 🚧 Futuras mejoras (Roadmap)
+
+* Integración con backend real (API de pedidos)
+* Persistencia del carrito (LocalStorage)
+* Sistema de autenticación
+* Panel de administración del restaurante
+* Filtros avanzados por categorías
+* Animaciones con Framer Motion
+* Conexión a base de datos
+
+---
+
+## 👨‍💻 Autor
+
+**Oscar Castro**
+Desarrollador de Software en formación 💻
+Enfocado en Frontend, UI/UX y aplicaciones escalables con React.
+
+GitHub: [https://github.com/dcastro25](https://github.com/dcastro25)
+
+---
+
+## 📌 Nota
+
+Este proyecto forma parte de mi portafolio como desarrollador y representa una simulación realista de un sistema de pedidos para restaurantes, aplicando buenas prácticas de arquitectura, diseño responsive y experiencia de usuario moderna.
