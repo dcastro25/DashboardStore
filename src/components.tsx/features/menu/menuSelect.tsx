@@ -7,7 +7,7 @@ export function MenuSelect(){
   const tabs = ["Hot dishes", "Cold dishes", "Soup", "Grill"];
 
   return (
-        <div className="border-b border-gray-600 gap-4 flex pr-6 pl-2 lg:justify-start lg:gap-8 justify-between">
+        <div className="border-b border-[#8b74707c] gap-4 flex pr-6 pl-2 lg:justify-start lg:gap-8 justify-between">
         {tabs.map((tab) => (
             <button
             key={tab}
@@ -15,7 +15,7 @@ export function MenuSelect(){
             className={`relative pb-3 font-medium transition-colors duration-300 ${
                 active === tab
                 ? "text-[#ec7c6a]"
-                : "text-gray-400 hover:text-white"
+                : "text-[#8b7470] hover:text-[#7f2314]"
             }`}
             >
             {tab}
