@@ -1,7 +1,8 @@
-import type { Food } from "../../../mockData/mockData"
+import type { food } from "../../../mockData/mockData"
+
 
 interface Props{
-    food: Food
+    food: food
 }
 
 export function FoodCard ({food}: Props){
@@ -22,10 +23,10 @@ export function FoodCard ({food}: Props){
             transition-all duration-300 ease-out
         ">
         <img
-            src={food.url}
+            src={food.image}
             className="w-40 h-40 object-cover -mt-20 shadow-2xl rounded-full pointer-events-none"
         />
-        <h1 className ="text-xl font-semibold text-[#3b2314]">{food.foodName}</h1>
+        <h1 className ="text-xl font-semibold text-[#3b2314]">{food.name}</h1>
         <p className="text-[#3b2314]">{food.description}</p>
         <span className="text-[#ec7c6a] font-semibold">${food.price}</span>
         <p className="text-gray-500">{food.available} Bowls avaliable</p>
