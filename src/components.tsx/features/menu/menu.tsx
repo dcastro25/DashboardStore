@@ -3,32 +3,47 @@ import { MenuSelect } from "./menuSelect";
 import { FoodCard } from "./cardMenu";
 import { useMemo, useState } from "react";
 import { dishes, type Category } from "../../../mockData/mockData";
+import logo from "../../../../public/logo.png"
+
+
 
 export function Menu (){
     const [category, setCategory] = useState<Category | "All">("All");
     const [search, setSearch] = useState<string>("");
-
+    
     const filteredDishes = useMemo(() => {
         const searchLower = search.toLowerCase();
 
         return dishes.filter((dish) => {
             const matchesCategory =
-                category === "All" || dish.category === category;
-
+            category === "All" || dish.category === category;
+            
             const matchesSearch =
-                dish.name.toLowerCase().includes(searchLower);
-
+            dish.name.toLowerCase().includes(searchLower);
+            
             return matchesCategory && matchesSearch;
         });
     }, [category, search]);
-
+    
+    
     return (
         <div>
-            <header className="pb-4">
-                <div className="flex flex-col pr-2 pl-2 gap-4 md:flex-row md:justify-between md:items-center lg:gap-4 mb:-6">
-                    <div>
-                        <h1 className="text-2xl text-[#3b2314] font-bold">Patacón Express</h1>
-                        <p className="text-[#8b7470]">07 octubre 2025</p>
+            <header className="pb-4 ">
+                <div className="flex pr-2 pl-3 pt-2 gap-4 md:flex-row md:justify-between md:items-center lg:gap-4 mb:-6">
+                    <div className="flex flex-row items-center">
+                        <div className="flex justify-center items-center p-4 lg:hidden">
+                        <div className=" w-20 h-20  rounded-3xl overflow-hidden flex items-center justify-center bg-white">
+                            <img 
+                            src={logo} 
+                            alt="Patacón Express Logo" 
+                            className="w-full h-full object-contain"
+                            />
+                        </div>
+                        </div>
+                        <div>
+                            <h1 className="text-2xl text-[#3b2314] font-bold">Patacón Express</h1>
+                            <p className="text-[#8b7470]">07 octubre 2025</p>
+                        </div>
                     </div>
 
                     <form onSubmit={(e) => e.preventDefault()}>
@@ -44,6 +59,7 @@ export function Menu (){
                             />
                         </div>
                     </form>
+                    
                 </div>
 
                 <nav className="pt-4">
